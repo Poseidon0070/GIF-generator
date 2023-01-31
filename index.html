@@ -6,14 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>GIF & Images</title>
+    <style>
+        body{
+            margin : 0px;
+            overflow: hidden;
+        }
+        .container{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #666;
+        }
+        #form{
+            background-color: rgb(164, 201, 195);
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 3px solid rgb(5, 5, 5);
+            align-content: center;
+            text-align: center;
+            border-radius: 10px;
+        }
+        #gif:hover{
+            background-color: rgb(187, 192, 192);
+        }
+        #gif{
+            width: 30pvh;
+            height: 30px;
+            cursor: pointer;
+            background-color: rgb(189, 178, 200);
+        }
+        #submit{
+            width: 350px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <form action="/" method="post">
-        <label for="gif">Enter a GIF you want :</label>
-        <input type="text" name="gif" id="gif">
-        <br>
-        <button type="submit">GO</button>
-    </form>
-    <h1>TEXT&nbsp;&nbsp;&nbsp;==>>&nbsp;&nbsp;API&nbsp;&nbsp;==>>&nbsp;&nbsp;&nbsp;GIF/STICKER</h1>
+    <div class="container">
+        <form action="/" method="post" id="form">
+            <label for="gif"><h1>Enter a GIF you want :</h1></label>
+            <input type="text" name="gif" id="gif" placeholder="GIF">
+            <br>
+            <button type="submit" id="submit">GO</button>
+        </form>
+    </div>
 </body>
-</html>
+</html> 
