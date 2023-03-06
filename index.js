@@ -51,7 +51,7 @@ app.post("/",(req,res)=>{
 
 // app.post("/",(req,res)=>{
 //     const GIF = req.body.gif;
-//     const API = "INHXeHpc0orSZWLK9H44ZmUdBTjSncvT";
+//     const API = process.env.API_KEY;
 //     const domain = "api.giphy.com/v1/gifs/translate"
 //     const URL = "https://"+domain+"?api_key="+API+"&s="+GIF;
 //     console.log(URL);
