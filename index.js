@@ -4,16 +4,18 @@ const bodyParser = require("body-parser");
 const fs = require("fs");
 const cheerio = require("cheerio");
 const axios = require("axios");
+require('dotenv').config();
 
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.get("/",(req,res)=>{
     res.sendFile(__dirname+"/index.html");
 })
-//Using Async/await
+
 app.post("/",(req,res)=>{
     const GIF = req.body.gif;
-    const API = "INHXeHpc0orSZWLK9H44ZmUdBTjSncvT";
+    const API = process.env.API_KEY;
+    console.log(API);
     const domain = "api.giphy.com/v1/gifs/translate"
     const URL = "https://"+domain+"?api_key="+API+"&s="+GIF;
     console.log(URL);
@@ -24,7 +26,6 @@ app.post("/",(req,res)=>{
             responseBody = response.data;
             const src = responseBody.data.embed_url;
             console.log(responseBody.data.embed_url);
-            // res.send(`<iframe src=${src} width="700" height="700" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`)
             fs.readFile("response.html","utf-8",(err,HTMLdata)=>{
                 if(err){
                     console.log(err);
@@ -47,7 +48,7 @@ app.post("/",(req,res)=>{
     }
     fetchData();
 })
-//Using Promise
+
 // app.post("/",(req,res)=>{
 //     const GIF = req.body.gif;
 //     const API = "INHXeHpc0orSZWLK9H44ZmUdBTjSncvT";
@@ -60,7 +61,6 @@ app.post("/",(req,res)=>{
 //             const responseBody = response.data;
 //             const src = responseBody.data.embed_url;
 //             console.log(responseBody.data.embed_url);
-//             // res.send(`<iframe src=${src} width="700" height="700" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>`)
 //             fs.readFile("response.html","utf-8",(err,HTMLdata)=>{
 //                 if(err){
 //                     console.log(err);
